@@ -2,10 +2,18 @@
 
 namespace ZarulIzham\PhoneFix;
 
+use Illuminate\Support\Str;
+
 class PhoneFix
 {
     public function fix($phone_number)
     {
+        if (Str::startsWith($phone_number, '1')) {
+            if (strlen($phone_number) == 9 || strlen($phone_number) == 10) {
+                return '60'.$phone_number;
+            }
+            return $phone_number;
+        }
         try {
             $util = \libphonenumber\PhoneNumberUtil::getInstance();
 
