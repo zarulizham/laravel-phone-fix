@@ -12,6 +12,7 @@ class PhoneFix
             if (strlen($phone_number) == 9 || strlen($phone_number) == 10) {
                 return '60'.$phone_number;
             }
+
             return $phone_number;
         }
         try {
